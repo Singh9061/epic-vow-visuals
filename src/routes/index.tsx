@@ -4,6 +4,7 @@ import { Splash } from "@/components/Splash";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Stories } from "@/components/Stories";
+import { Team } from "@/components/Team";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
@@ -27,6 +28,7 @@ function Index() {
         <Nav />
         <Hero />
         <Stories />
+        <Team />
         <Footer />
       </main>
     </>
