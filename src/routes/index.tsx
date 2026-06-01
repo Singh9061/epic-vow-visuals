@@ -1,29 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Splash } from "@/components/Splash";
+import { Nav } from "@/components/Nav";
+import { Hero } from "@/components/Hero";
+import { Stories } from "@/components/Stories";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Picsdom — Wedding Films & Photography" },
+      { name: "description", content: "Picsdom — cinematic wedding films and timeless photography. We don't just capture weddings, we live them with you." },
+      { property: "og:title", content: "Picsdom — Wedding Films & Photography" },
+      { property: "og:description", content: "Cinematic wedding films and timeless photography across India and beyond." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [splashDone, setSplashDone] = useState(false);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      {!splashDone && <Splash onDone={() => setSplashDone(true)} />}
+      <main className="min-h-screen bg-background">
+        <Nav />
+        <Hero />
+        <Stories />
+        <Footer />
+      </main>
+    </>
   );
 }
