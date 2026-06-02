@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
-import heroVideo from "@/assets/hero-wedding.mp4.asset.json";
+import { FilmsSection } from "@/components/FilmsSection";
 
 export const Route = createFileRoute("/films")({
   head: () => ({
