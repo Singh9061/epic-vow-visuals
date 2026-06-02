@@ -4,6 +4,8 @@ import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
 import ornament from "@/assets/ornament.png";
 
+import { AboutSection } from "@/components/AboutSection";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
