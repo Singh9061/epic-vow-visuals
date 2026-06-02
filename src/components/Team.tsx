@@ -5,15 +5,15 @@ import ornament from "@/assets/ornament.png";
 const team = [
   {
     img: founder,
-    name: "Aarav Mehra",
-    role: "Founder & Lead Photographer",
-    bio: "A storyteller at heart, Aarav founded Picsdom with one belief — every wedding deserves to be remembered the way it felt, not just the way it looked.",
+    name: "Amit Pal",
+    role: "Founder & MD",
+    bio: "A storyteller at heart, Amit founded Picsdom with one belief — every wedding deserves to be remembered the way it felt, not just the way it looked.",
   },
   {
     img: cofounder,
-    name: "Rohit Verma",
+    name: "Prashant Pal",
     role: "Co-Founder & Cinematographer",
-    bio: "Rohit's films feel like memory itself — slow, warm and honest. He leads our cinema team and shapes the soul of every Picsdom wedding film.",
+    bio: "Prashant's films feel like memory itself — slow, warm and honest. He leads our cinema team and shapes the soul of every Picsdom wedding film.",
   },
 ];
 
