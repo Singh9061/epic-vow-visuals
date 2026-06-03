@@ -1,5 +1,29 @@
 import { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Download, DownloadCloud } from "lucide-react";
+
+async function downloadPhoto(url: string, filename: string) {
+  try {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(link.href);
+  } catch {
+    window.open(url, "_blank");
+  }
+}
+
+async function downloadAll(urls: string[], prefix: string, onProgress?: (n: number) => void) {
+  for (let i = 0; i < urls.length; i++) {
+    await downloadPhoto(urls[i], `${prefix}-${String(i + 1).padStart(2, "0")}.jpg`);
+    onProgress?.(i + 1);
+    await new Promise((r) => setTimeout(r, 250));
+  }
+}
 
 const seeds = [
   "wedding-bride", "wedding-couple", "wedding-rings", "wedding-flowers",
