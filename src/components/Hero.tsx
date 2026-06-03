@@ -16,7 +16,7 @@ export function Hero() {
         <span className="text-[0.7rem] md:text-xs tracking-[0.5em] uppercase text-white/80 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           Timeless · Cinematic · Crafted
         </span>
-        <h1 className="mt-6 text-4xl md:text-7xl text-white max-w-4xl leading-tight animate-fade-up" style={{ animationDelay: "0.5s" }}>
+        <h1 className="mt-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white max-w-3xl leading-snug animate-slide-in" style={{ animationDelay: "0.5s" }}>
           We don't just capture weddings — <em className="gold-text not-italic">we live them with you</em>
         </h1>
         <div className="h-px w-24 mt-8 bg-gold animate-fade-up" style={{ animationDelay: "0.9s" }} />
