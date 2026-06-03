@@ -4,8 +4,8 @@ import logo from "@/assets/picsdom-logo-gold.png";
 const links = [
   { to: "/", label: "Home" },
   { to: "/films", label: "Films" },
+  { to: "/albums", label: "Albums" },
   { to: "/stories", label: "Stories" },
-  { to: "/team", label: "Team" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;

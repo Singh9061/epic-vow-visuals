@@ -13,6 +13,7 @@ import { Route as TeamRouteImport } from './routes/team'
 import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as FilmsRouteImport } from './routes/films'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AlbumsRouteImport } from './routes/albums'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlbumsRoute = AlbumsRouteImport.update({
+  id: '/albums',
+  path: '/albums',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/albums': typeof AlbumsRoute
   '/contact': typeof ContactRoute
   '/films': typeof FilmsRoute
   '/stories': typeof StoriesRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/albums': typeof AlbumsRoute
   '/contact': typeof ContactRoute
   '/films': typeof FilmsRoute
   '/stories': typeof StoriesRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/albums': typeof AlbumsRoute
   '/contact': typeof ContactRoute
   '/films': typeof FilmsRoute
   '/stories': typeof StoriesRoute
@@ -74,15 +83,31 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/films' | '/stories' | '/team'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/albums'
+    | '/contact'
+    | '/films'
+    | '/stories'
+    | '/team'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/films' | '/stories' | '/team'
-  id: '__root__' | '/' | '/about' | '/contact' | '/films' | '/stories' | '/team'
+  to: '/' | '/about' | '/albums' | '/contact' | '/films' | '/stories' | '/team'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/albums'
+    | '/contact'
+    | '/films'
+    | '/stories'
+    | '/team'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AlbumsRoute: typeof AlbumsRoute
   ContactRoute: typeof ContactRoute
   FilmsRoute: typeof FilmsRoute
   StoriesRoute: typeof StoriesRoute
@@ -119,6 +144,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/albums': {
+      id: '/albums'
+      path: '/albums'
+      fullPath: '/albums'
+      preLoaderRoute: typeof AlbumsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -139,6 +171,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AlbumsRoute: AlbumsRoute,
   ContactRoute: ContactRoute,
   FilmsRoute: FilmsRoute,
   StoriesRoute: StoriesRoute,
@@ -147,13 +180,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
