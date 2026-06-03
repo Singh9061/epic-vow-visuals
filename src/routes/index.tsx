@@ -7,6 +7,7 @@ import { Stories } from "@/components/Stories";
 import { Team } from "@/components/Team";
 import { PageHeader } from "@/components/PageHeader";
 import { FilmsSection } from "@/components/FilmsSection";
+import { Albums } from "@/components/Albums";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
@@ -31,10 +32,12 @@ function Index() {
       <main className="min-h-screen bg-background">
         <Nav />
         <Hero />
-        <Stories />
-        <Team />
         <PageHeader kicker="In Motion" title="Our Films" />
         <FilmsSection />
+        <Stories />
+        <Albums />
+        <PageHeader kicker="The Makers" title="Meet The Team" />
+        <Team />
         <PageHeader kicker="Who We Are" title="About Picsdom" />
         <AboutSection />
         <PageHeader kicker="Say Hello" title="Let's Talk" />
