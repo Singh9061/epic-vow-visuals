@@ -137,7 +137,7 @@ export function Albums() {
                 title="Download all 20 photos"
               >
                 <DownloadCloud className="w-3.5 h-3.5" />
-                {zipping === album.id ? `${progress}/20` : "All 20"}
+                {zipping === album.id ? `${progress}/${album.count}` : `All ${album.count}`}
               </button>
               <button onClick={() => setActive(null)} className="text-white hover:text-gold p-2">
                 <X className="w-6 h-6" />
