@@ -94,7 +94,7 @@ export function Albums() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-xs tracking-[0.3em] uppercase text-gold">{a.location} · 20 Photos</p>
+                  <p className="text-xs tracking-[0.3em] uppercase text-gold">{a.location} · {a.count} Photos</p>
                   <h3 className="text-2xl md:text-3xl text-white mt-2">{a.title}</h3>
                   <span className="inline-block mt-3 text-xs tracking-[0.3em] uppercase border-b border-gold pb-1 text-white">
                     View Album
