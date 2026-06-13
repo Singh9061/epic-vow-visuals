@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Splash } from "@/components/Splash";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Stories } from "@/components/Stories";
-import { Team } from "@/components/Team";
 import { PageHeader } from "@/components/PageHeader";
 import { FilmsSection } from "@/components/FilmsSection";
 import { Albums } from "@/components/Albums";
@@ -34,10 +32,7 @@ function Index() {
         <Hero />
         <PageHeader kicker="In Motion" title="Our Films" />
         <FilmsSection />
-        <Stories />
         <Albums />
-        <PageHeader kicker="The Makers" title="Meet The Team" />
-        <Team />
         <PageHeader kicker="Who We Are" title="About Picsdom" />
         <AboutSection />
         <PageHeader kicker="Say Hello" title="Let's Talk" />
