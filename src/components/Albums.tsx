@@ -108,7 +108,7 @@ export function Albums() {
                 title="Download all 20 photos"
               >
                 <DownloadCloud className="w-3.5 h-3.5" />
-                {zipping === a.id ? `${progress}/20` : "Download All"}
+                {zipping === a.id ? `${progress}/${a.count}` : "Download All"}
               </button>
             </div>
           ))}
