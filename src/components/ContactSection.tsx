@@ -1,4 +1,14 @@
 import { Mail, Phone, MapPin, Instagram, MessageCircle } from "lucide-react";
+import ar0 from "@/assets/aanya-rohan/ar_0.jpeg.asset.json";
+import ar1 from "@/assets/aanya-rohan/ar_1.jpeg.asset.json";
+import ar2 from "@/assets/aanya-rohan/ar_2.jpeg.asset.json";
+import ar3 from "@/assets/aanya-rohan/ar_3.jpeg.asset.json";
+import ar4 from "@/assets/aanya-rohan/ar_4.jpeg.asset.json";
+import ar5 from "@/assets/aanya-rohan/ar_5.jpeg.asset.json";
+import ar6 from "@/assets/aanya-rohan/ar_6.jpeg.asset.json";
+import ar7 from "@/assets/aanya-rohan/ar_7.jpeg.asset.json";
+
+const gramTiles = [ar0.url, ar1.url, ar2.url, ar3.url, ar4.url, ar5.url, ar6.url, ar7.url];
 
 const WHATSAPP = "https://wa.me/919235513863?text=" + encodeURIComponent("Hi Picsdom! I'd like to enquire about wedding photography.");
 const INSTAGRAM = "https://www.instagram.com/picsdom.rbl?igsh=MXM1OXk3Z2syOGJ0bQ==";
