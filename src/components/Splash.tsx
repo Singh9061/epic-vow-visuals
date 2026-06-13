@@ -96,10 +96,7 @@ export function Splash({ onDone }: { onDone: () => void }) {
         <img src={ornament} alt="" className="w-64 md:w-80 opacity-90 animate-float-slow" width={1024} height={512} />
         <div className="-mt-2 md:-mt-4 flex flex-col items-center relative">
           <span className="text-xs md:text-sm tracking-[0.5em] text-muted-foreground uppercase mb-4">Welcome to</span>
-          <div className="relative">
-            <img src={logo} alt="Picsdom Raebareli" className="w-72 md:w-[28rem] relative z-10" />
-            <ApertureIris />
-          </div>
+          <img src={logo} alt="Picsdom Raebareli" className="w-72 md:w-[28rem]" />
           <div className="h-px w-48 md:w-64 mt-6 origin-left bg-gradient-to-r from-transparent via-gold to-transparent animate-draw-line" />
           <span className="mt-4 text-[0.7rem] md:text-xs tracking-[0.4em] text-muted-foreground uppercase">
             Wedding Films & Photography
