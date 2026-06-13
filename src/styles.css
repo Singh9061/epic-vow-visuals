@@ -108,6 +108,14 @@
   from { opacity: 0; transform: translateY(30px) scale(0.95); filter: blur(4px); }
   to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
+@keyframes aperture-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes aperture-pulse {
+  0%, 100% { transform: translateY(-42px) scale(1); }
+  50% { transform: translateY(-42px) scale(1.15); }
+}
 
 .animate-splash { animation: splash-fade 3.2s ease-out forwards; }
 .animate-draw-line { animation: draw-line 1.6s ease-out 0.4s both; transform-origin: left; }
