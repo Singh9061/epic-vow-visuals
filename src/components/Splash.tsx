@@ -2,89 +2,77 @@ import { useEffect, useState } from "react";
 import ornament from "@/assets/ornament.png";
 import logo from "@/assets/picsdom-logo-gold.png";
 
-function ApertureRing() {
+function ApertureIris() {
   const blades = 8;
-  const rings = [
-    { r: 52, w: 1.5, dur: 8, dir: "normal" },
-    { r: 58, w: 1, dur: 14, dir: "reverse" },
-    { r: 64, w: 0.8, dur: 20, dir: "normal" },
-  ];
+  // Curved aperture blade (iris leaf) shape
+  const bladePath =
+    "M 0 -42 Q 18 -34 22 -10 Q 14 -18 -4 -16 Q -14 -28 0 -42 Z";
+
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <div className="relative w-80 h-20 md:w-[28rem] md:h-24 flex items-center justify-center">
-        <svg
-          viewBox="0 0 200 80"
-          className="absolute w-full h-full"
-          style={{ overflow: "visible" }}
-        >
-          {/* Center the ring around the "O" in Picsdom — roughly x=108, y=40 */}
-          <g transform="translate(108, 40)">
-            {rings.map((ring, ri) => (
-              <g key={ri}>
-                <circle
-                  r={ring.r}
-                  fill="none"
-                  stroke="oklch(0.72 0.13 75)"
-                  strokeWidth={ring.w}
-                  opacity={0.5}
-                  strokeDasharray="4 8"
-                  style={{
-                    animation: `aperture-spin ${ring.dur}s linear infinite ${ring.dir}`,
-                    transformOrigin: "center",
-                  }}
-                />
-                {/* Tick marks */}
-                {Array.from({ length: blades * 2 }).map((_, i) => {
-                  const a = (i * 360) / (blades * 2);
-                  const rad = (a * Math.PI) / 180;
-                  const x1 = Math.cos(rad) * (ring.r - 4);
-                  const y1 = Math.sin(rad) * (ring.r - 4);
-                  const x2 = Math.cos(rad) * (ring.r + (i % 2 === 0 ? 4 : 2));
-                  const y2 = Math.sin(rad) * (ring.r + (i % 2 === 0 ? 4 : 2));
-                  return (
-                    <line
-                      key={i}
-                      x1={x1}
-                      y1={y1}
-                      x2={x2}
-                      y2={y2}
-                      stroke="oklch(0.72 0.13 75)"
-                      strokeWidth={0.6}
-                      opacity={0.4}
-                      style={{
-                        animation: `aperture-spin ${ring.dur}s linear infinite ${ring.dir}`,
-                        transformOrigin: "center",
-                      }}
-                    />
-                  );
-                })}
-              </g>
-            ))}
-            {/* Aperture blades */}
-            {Array.from({ length: blades }).map((_, i) => {
-              const a = (i * 360) / blades;
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+      {/* Position over the "O" in Picsdom — slightly right of center */}
+      <div
+        className="relative"
+        style={{
+          width: "clamp(56px, 14%, 110px)",
+          aspectRatio: "1 / 1",
+          transform: "translateX(22%)",
+        }}
+      >
+        <svg viewBox="-60 -60 120 120" className="absolute inset-0 w-full h-full overflow-visible">
+          {/* Outer rotating ring with ticks */}
+          <g style={{ animation: "aperture-spin 18s linear infinite", transformOrigin: "center" }}>
+            <circle r={54} fill="none" stroke="oklch(0.72 0.13 75)" strokeWidth={0.8} opacity={0.55} strokeDasharray="2 6" />
+            {Array.from({ length: 36 }).map((_, i) => {
+              const a = (i * 360) / 36;
+              const rad = (a * Math.PI) / 180;
+              const big = i % 3 === 0;
+              const r1 = 50;
+              const r2 = big ? 56 : 53;
               return (
-                <polygon
-                  key={`blade-${i}`}
-                  points="0,0 6,-22 14,-10"
-                  fill="oklch(0.14 0.01 60)"
+                <line
+                  key={i}
+                  x1={Math.cos(rad) * r1}
+                  y1={Math.sin(rad) * r1}
+                  x2={Math.cos(rad) * r2}
+                  y2={Math.sin(rad) * r2}
                   stroke="oklch(0.72 0.13 75)"
-                  strokeWidth={0.4}
-                  opacity={0.7}
-                  style={{
-                    transform: `rotate(${a}deg) translateY(-42px)`,
-                    transformOrigin: "center",
-                    animation: `aperture-pulse 3s ease-in-out infinite`,
-                    animationDelay: `${i * 0.15}s`,
-                  }}
+                  strokeWidth={big ? 0.9 : 0.5}
+                  opacity={big ? 0.8 : 0.4}
                 />
               );
             })}
-            {/* Center highlight dot */}
-            <circle r={3} fill="oklch(0.72 0.13 75)" opacity={0.9}>
-              <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
-            </circle>
           </g>
+
+          {/* Inner counter-rotating ring */}
+          <g style={{ animation: "aperture-spin 26s linear infinite reverse", transformOrigin: "center" }}>
+            <circle r={46} fill="none" stroke="oklch(0.72 0.13 75)" strokeWidth={0.6} opacity={0.35} />
+            <circle r={44} fill="none" stroke="oklch(0.72 0.13 75)" strokeWidth={0.3} opacity={0.25} strokeDasharray="1 3" />
+          </g>
+
+          {/* Iris blades — open animation */}
+          <g style={{ animation: "iris-open 2.4s ease-out 0.4s both", transformOrigin: "center" }}>
+            {Array.from({ length: blades }).map((_, i) => {
+              const a = (i * 360) / blades;
+              return (
+                <path
+                  key={i}
+                  d={bladePath}
+                  fill="oklch(0.18 0.02 60)"
+                  stroke="oklch(0.72 0.13 75)"
+                  strokeWidth={0.5}
+                  opacity={0.92}
+                  style={{ transform: `rotate(${a}deg)`, transformOrigin: "center" }}
+                />
+              );
+            })}
+          </g>
+
+          {/* Center glint */}
+          <circle r={2.5} fill="oklch(0.85 0.12 80)">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="r" values="2;3.5;2" dur="2s" repeatCount="indefinite" />
+          </circle>
         </svg>
       </div>
     </div>
@@ -110,7 +98,7 @@ export function Splash({ onDone }: { onDone: () => void }) {
           <span className="text-xs md:text-sm tracking-[0.5em] text-muted-foreground uppercase mb-4">Welcome to</span>
           <div className="relative">
             <img src={logo} alt="Picsdom Raebareli" className="w-72 md:w-[28rem] relative z-10" />
-            <ApertureRing />
+            <ApertureIris />
           </div>
           <div className="h-px w-48 md:w-64 mt-6 origin-left bg-gradient-to-r from-transparent via-gold to-transparent animate-draw-line" />
           <span className="mt-4 text-[0.7rem] md:text-xs tracking-[0.4em] text-muted-foreground uppercase">
