@@ -44,15 +44,16 @@ const seeds = [
 ];
 
 const albums = [
-  { id: "aanya-rohan", title: "Aanya & Rohan", location: "Udaipur", cover: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200" },
-  { id: "meera-aditya", title: "Meera & Aditya", location: "Jaipur", cover: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200" },
-  { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200" },
-  { id: "isha-kabir", title: "Isha & Kabir", location: "Goa", cover: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200" },
-  { id: "nisha-arjun", title: "Nisha & Arjun", location: "Raebareli", cover: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200" },
-  { id: "diya-veer", title: "Diya & Veer", location: "Varanasi", cover: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200" },
+  { id: "aanya-rohan", title: "Aanya & Rohan", location: "Lucknow", cover: aanyaRohanPhotos[0], count: aanyaRohanPhotos.length },
+  { id: "meera-aditya", title: "Meera & Aditya", location: "Jaipur", cover: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200", count: 20 },
+  { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200", count: 20 },
+  { id: "isha-kabir", title: "Isha & Kabir", location: "Goa", cover: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200", count: 20 },
+  { id: "nisha-arjun", title: "Nisha & Arjun", location: "Raebareli", cover: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200", count: 20 },
+  { id: "diya-veer", title: "Diya & Veer", location: "Varanasi", cover: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200", count: 20 },
 ];
 
 function albumPhotos(id: string) {
+  if (id === "aanya-rohan") return aanyaRohanPhotos;
   return seeds.map((s, i) => `https://picsum.photos/seed/${id}-${s}-${i}/900/1200`);
 }
 
