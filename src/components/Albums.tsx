@@ -8,8 +8,19 @@ import ar4 from "@/assets/aanya-rohan/ar_4.jpeg.asset.json";
 import ar5 from "@/assets/aanya-rohan/ar_5.jpeg.asset.json";
 import ar6 from "@/assets/aanya-rohan/ar_6.jpeg.asset.json";
 import ar7 from "@/assets/aanya-rohan/ar_7.jpeg.asset.json";
+import pp0 from "@/assets/prashant-priyanshi/pp_0.jpg.asset.json";
+import pp1 from "@/assets/prashant-priyanshi/pp_1.jpg.asset.json";
+import pp2 from "@/assets/prashant-priyanshi/pp_2.jpg.asset.json";
+import pp3 from "@/assets/prashant-priyanshi/pp_3.jpg.asset.json";
+import pp4 from "@/assets/prashant-priyanshi/pp_4.jpg.asset.json";
+import pp5 from "@/assets/prashant-priyanshi/pp_5.jpg.asset.json";
+import pp6 from "@/assets/prashant-priyanshi/pp_6.jpg.asset.json";
+import pp7 from "@/assets/prashant-priyanshi/pp_7.jpg.asset.json";
+import pp8 from "@/assets/prashant-priyanshi/pp_8.jpg.asset.json";
+import pp9 from "@/assets/prashant-priyanshi/pp_9.jpg.asset.json";
 
 const aanyaRohanPhotos = [ar0.url, ar1.url, ar2.url, ar3.url, ar4.url, ar5.url, ar6.url, ar7.url];
+const prashantPriyanshiPhotos = [pp0.url, pp1.url, pp2.url, pp3.url, pp4.url, pp5.url, pp6.url, pp7.url, pp8.url, pp9.url];
 
 async function downloadPhoto(url: string, filename: string) {
   try {
@@ -45,7 +56,7 @@ const seeds = [
 
 const albums = [
   { id: "aanya-rohan", title: "Aanya & Rohan", location: "Lucknow", cover: aanyaRohanPhotos[0], count: aanyaRohanPhotos.length },
-  { id: "meera-aditya", title: "Meera & Aditya", location: "Jaipur", cover: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200", count: 20 },
+  { id: "prashant-priyanshi", title: "Prashant & Priyanshi", location: "Lucknow", cover: prashantPriyanshiPhotos[0], count: prashantPriyanshiPhotos.length },
   { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200", count: 20 },
   { id: "isha-kabir", title: "Isha & Kabir", location: "Goa", cover: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200", count: 20 },
   { id: "nisha-arjun", title: "Nisha & Arjun", location: "Raebareli", cover: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200", count: 20 },
@@ -54,6 +65,7 @@ const albums = [
 
 function albumPhotos(id: string) {
   if (id === "aanya-rohan") return aanyaRohanPhotos;
+  if (id === "prashant-priyanshi") return prashantPriyanshiPhotos;
   return seeds.map((s, i) => `https://picsum.photos/seed/${id}-${s}-${i}/900/1200`);
 }
 
