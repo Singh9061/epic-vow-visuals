@@ -1,4 +1,4 @@
-import heroVideo from "@/assets/hero-wedding.mp4.asset.json";
+import heroVideo from "@/assets/videos/hero-couple.mp4.asset.json";
 
 const words = ["We", "don't", "just", "capture", "weddings", "—", "we", "live", "them", "with", "you"];
 
