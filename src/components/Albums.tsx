@@ -18,9 +18,16 @@ import pp6 from "@/assets/prashant-priyanshi/pp_6.jpg.asset.json";
 import pp7 from "@/assets/prashant-priyanshi/pp_7.jpg.asset.json";
 import pp8 from "@/assets/prashant-priyanshi/pp_8.jpg.asset.json";
 import pp9 from "@/assets/prashant-priyanshi/pp_9.jpg.asset.json";
+import sv0 from "@/assets/sana-vikram/sv_0.jpg.asset.json";
+import sv1 from "@/assets/sana-vikram/sv_1.jpg.asset.json";
+import sv2 from "@/assets/sana-vikram/sv_2.jpg.asset.json";
+import sv3 from "@/assets/sana-vikram/sv_3.jpg.asset.json";
+import sv4 from "@/assets/sana-vikram/sv_4.jpg.asset.json";
 
 const aanyaRohanPhotos = [ar0.url, ar1.url, ar2.url, ar3.url, ar4.url, ar5.url, ar6.url, ar7.url];
 const prashantPriyanshiPhotos = [pp0.url, pp1.url, pp2.url, pp3.url, pp4.url, pp5.url, pp6.url, pp7.url, pp8.url, pp9.url];
+const sanaVikramPhotos = [sv0.url, sv1.url, sv2.url, sv3.url, sv4.url];
+
 
 async function downloadPhoto(url: string, filename: string) {
   try {
@@ -57,7 +64,7 @@ const seeds = [
 const albums = [
   { id: "aanya-rohan", title: "Aanya & Rohan", location: "Lucknow", cover: aanyaRohanPhotos[0], count: aanyaRohanPhotos.length },
   { id: "prashant-priyanshi", title: "Prashant & Priyanshi", location: "Lucknow", cover: prashantPriyanshiPhotos[0], count: prashantPriyanshiPhotos.length },
-  { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200", count: 20 },
+  { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: sanaVikramPhotos[0], count: sanaVikramPhotos.length },
   { id: "isha-kabir", title: "Isha & Kabir", location: "Goa", cover: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200", count: 20 },
   { id: "nisha-arjun", title: "Nisha & Arjun", location: "Raebareli", cover: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200", count: 20 },
   { id: "diya-veer", title: "Diya & Veer", location: "Varanasi", cover: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200", count: 20 },
@@ -66,7 +73,9 @@ const albums = [
 function albumPhotos(id: string) {
   if (id === "aanya-rohan") return aanyaRohanPhotos;
   if (id === "prashant-priyanshi") return prashantPriyanshiPhotos;
+  if (id === "sana-vikram") return sanaVikramPhotos;
   return seeds.map((s, i) => `https://picsum.photos/seed/${id}-${s}-${i}/900/1200`);
+
 }
 
 export function Albums() {
