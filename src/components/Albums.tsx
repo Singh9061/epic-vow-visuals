@@ -80,6 +80,7 @@ function albumPhotos(id: string) {
   if (id === "aanya-rohan") return aanyaRohanPhotos;
   if (id === "prashant-priyanshi") return prashantPriyanshiPhotos;
   if (id === "sana-vikram") return sanaVikramPhotos;
+  if (id === "isha-kabir") return ishaKabirPhotos;
   return seeds.map((s, i) => `https://picsum.photos/seed/${id}-${s}-${i}/900/1200`);
 
 }
