@@ -18,9 +18,16 @@ import pp6 from "@/assets/prashant-priyanshi/pp_6.jpg.asset.json";
 import pp7 from "@/assets/prashant-priyanshi/pp_7.jpg.asset.json";
 import pp8 from "@/assets/prashant-priyanshi/pp_8.jpg.asset.json";
 import pp9 from "@/assets/prashant-priyanshi/pp_9.jpg.asset.json";
+import sv0 from "@/assets/sana-vikram/sv_0.jpg.asset.json";
+import sv1 from "@/assets/sana-vikram/sv_1.jpg.asset.json";
+import sv2 from "@/assets/sana-vikram/sv_2.jpg.asset.json";
+import sv3 from "@/assets/sana-vikram/sv_3.jpg.asset.json";
+import sv4 from "@/assets/sana-vikram/sv_4.jpg.asset.json";
 
 const aanyaRohanPhotos = [ar0.url, ar1.url, ar2.url, ar3.url, ar4.url, ar5.url, ar6.url, ar7.url];
 const prashantPriyanshiPhotos = [pp0.url, pp1.url, pp2.url, pp3.url, pp4.url, pp5.url, pp6.url, pp7.url, pp8.url, pp9.url];
+const sanaVikramPhotos = [sv0.url, sv1.url, sv2.url, sv3.url, sv4.url];
+
 
 async function downloadPhoto(url: string, filename: string) {
   try {
