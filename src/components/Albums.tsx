@@ -28,11 +28,14 @@ import ik1 from "@/assets/isha-kabir/ik_1.jpg.asset.json";
 import ik2 from "@/assets/isha-kabir/ik_2.jpg.asset.json";
 import ik3 from "@/assets/isha-kabir/ik_3.jpg.asset.json";
 import ik4 from "@/assets/isha-kabir/ik_4.jpg.asset.json";
+import na0 from "@/assets/nisha-arjun/na_0.jpg.asset.json";
+import na1 from "@/assets/nisha-arjun/na_1.jpg.asset.json";
 
 const aanyaRohanPhotos = [ar0.url, ar1.url, ar2.url, ar3.url, ar4.url, ar5.url, ar6.url, ar7.url];
 const prashantPriyanshiPhotos = [pp0.url, pp1.url, pp2.url, pp3.url, pp4.url, pp5.url, pp6.url, pp7.url, pp8.url, pp9.url];
 const sanaVikramPhotos = [sv0.url, sv1.url, sv2.url, sv3.url, sv4.url];
 const ishaKabirPhotos = [ik0.url, ik1.url, ik2.url, ik3.url, ik4.url];
+const nishaArjunPhotos = [na0.url, na1.url];
 
 
 async function downloadPhoto(url: string, filename: string) {
