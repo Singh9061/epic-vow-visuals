@@ -64,7 +64,7 @@ const seeds = [
 const albums = [
   { id: "aanya-rohan", title: "Aanya & Rohan", location: "Lucknow", cover: aanyaRohanPhotos[0], count: aanyaRohanPhotos.length },
   { id: "prashant-priyanshi", title: "Prashant & Priyanshi", location: "Lucknow", cover: prashantPriyanshiPhotos[0], count: prashantPriyanshiPhotos.length },
-  { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200", count: 20 },
+  { id: "sana-vikram", title: "Sana & Vikram", location: "Lucknow", cover: sanaVikramPhotos[0], count: sanaVikramPhotos.length },
   { id: "isha-kabir", title: "Isha & Kabir", location: "Goa", cover: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1200", count: 20 },
   { id: "nisha-arjun", title: "Nisha & Arjun", location: "Raebareli", cover: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200", count: 20 },
   { id: "diya-veer", title: "Diya & Veer", location: "Varanasi", cover: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200", count: 20 },
