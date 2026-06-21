@@ -73,7 +73,9 @@ const albums = [
 function albumPhotos(id: string) {
   if (id === "aanya-rohan") return aanyaRohanPhotos;
   if (id === "prashant-priyanshi") return prashantPriyanshiPhotos;
+  if (id === "sana-vikram") return sanaVikramPhotos;
   return seeds.map((s, i) => `https://picsum.photos/seed/${id}-${s}-${i}/900/1200`);
+
 }
 
 export function Albums() {
