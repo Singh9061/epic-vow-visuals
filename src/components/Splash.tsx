@@ -81,10 +81,12 @@ function ApertureIris() {
 
 export function Splash({ onDone }: { onDone: () => void }) {
   const [gone, setGone] = useState(false);
+  const [showBody, setShowBody] = useState(false);
   useEffect(() => {
+    const t0 = setTimeout(() => setShowBody(true), 900);
     const t1 = setTimeout(() => setGone(true), 3000);
     const t2 = setTimeout(onDone, 3400);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => { clearTimeout(t0); clearTimeout(t1); clearTimeout(t2); };
   }, [onDone]);
 
   return (
@@ -92,7 +94,16 @@ export function Splash({ onDone }: { onDone: () => void }) {
       className={`fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-500 ${gone ? "opacity-0 pointer-events-none" : "opacity-100"}`}
     >
       <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 50% 50%, oklch(0.85 0.08 80) 0%, transparent 60%)" }} />
-      <div className="relative flex flex-col items-center animate-splash">
+
+      {/* Logo first — visible immediately */}
+      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${showBody ? "opacity-0 scale-105" : "opacity-100 scale-100"}`}>
+        <div className="flex flex-col items-center animate-logo-reveal">
+          <img src={logo} alt="Picsdom Raebareli" className="w-64 md:w-80" />
+        </div>
+      </div>
+
+      {/* Full splash body — fades in after logo */}
+      <div className={`relative flex flex-col items-center transition-opacity duration-700 ease-out ${showBody ? "opacity-100" : "opacity-0"}`}>
         <img src={ornament} alt="" className="w-64 md:w-80 opacity-90 animate-float-slow" width={1024} height={512} />
         <div className="-mt-2 md:-mt-4 flex flex-col items-center relative">
           <span className="text-xs md:text-sm tracking-[0.5em] text-muted-foreground uppercase mb-4">Welcome to</span>
