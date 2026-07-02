@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Picsdom — Wedding Films & Photography" },
-      { name: "description", content: "Picsdom — cinematic wedding films and timeless photography. We don't just capture weddings, we live them with you." },
+      { name: "description", content: "Picsdom — timeless, cinematic, crafted wedding films and photography in Raebareli and beyond." },
       { property: "og:title", content: "Picsdom — Wedding Films & Photography" },
       { property: "og:description", content: "Cinematic wedding films and timeless photography across India and beyond." },
     ],
